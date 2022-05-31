@@ -1,0 +1,8 @@
+C:\Users\corey\Desktop\csharp27\CSMethods\CSMethods\obj\Debug\CSMethods.csproj.AssemblyReference.cache
+C:\Users\corey\Desktop\csharp27\CSMethods\CSMethods\obj\Debug\CSMethods.csproj.SuggestedBindingRedirects.cache
+C:\Users\corey\Desktop\csharp27\CSMethods\CSMethods\obj\Debug\CSMethods.csproj.CoreCompileInputs.cache
+C:\Users\corey\Desktop\csharp27\CSMethods\CSMethods\bin\Debug\CSMethods.exe.config
+C:\Users\corey\Desktop\csharp27\CSMethods\CSMethods\bin\Debug\CSMethods.exe
+C:\Users\corey\Desktop\csharp27\CSMethods\CSMethods\bin\Debug\CSMethods.pdb
+C:\Users\corey\Desktop\csharp27\CSMethods\CSMethods\obj\Debug\CSMethods.exe
+C:\Users\corey\Desktop\csharp27\CSMethods\CSMethods\obj\Debug\CSMethods.pdb
