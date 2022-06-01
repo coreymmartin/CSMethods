@@ -8,6 +8,15 @@ namespace CSMethods
 {
     internal class Program
     {
+
+        public enum Selection
+        {
+            Add = 1,
+            Subtract,
+            Multiply,
+            Divide
+        }
+
         public static void TellAStory()
         {
             Console.WriteLine("please enter a greeting");
@@ -72,6 +81,8 @@ namespace CSMethods
             Console.WriteLine();
             Console.WriteLine("press enter to clear story and continue...");
             Console.ReadLine();
+            Console.Clear();
+
         }
 
         public static int Add(params int[] inputs) {
@@ -126,10 +137,11 @@ namespace CSMethods
                 userVals[i] = Convert.ToInt32(Console.ReadLine());
             }
             Console.WriteLine($"all values entered:");
-            for (int j = 0; j < userVals.Length; j++)
+            Console.Write(userVals[0]);
+            for (int j = 1; j < userVals.Length; j++)
             {
-                Console.Write(userVals[j]);
                 Console.Write(", ");
+                Console.Write(userVals[j]);
             }
             Console.WriteLine();
             Console.WriteLine("press enter to continue to select operation to perform");
@@ -140,19 +152,19 @@ namespace CSMethods
             int OperatorSelected = Convert.ToInt32(Console.ReadLine());
             int result = 0;
             switch (OperatorSelected){
-                case 1:
+                case (int)Selection.Add:
                     Console.WriteLine("Operator Selected: Add");
                     result = Add(userVals);
                     break;
-                case 2:
+                case (int)Selection.Subtract:
                     Console.WriteLine("Operator Selected: Subtract");
                     result = Subtract(userVals);
                     break;
-                case 3:
+                case (int)Selection.Multiply:
                     Console.WriteLine("Operator Selected: Multiply");
                     result = Multiply(userVals);
                     break;
-                case 4:
+                case (int)Selection.Divide:
                     Console.WriteLine("Operator Selected: Divide");
                     result = Divide(userVals);
                     break;
@@ -175,7 +187,7 @@ namespace CSMethods
             while (bContinue)
             {
                 Console.WriteLine("Please select option: \n\t(1) Excercise 1: Tell A Story\n\t(2) Excercise 2: Math Operators \n\t(3) Exit\n\nPlease enter your option number...");
-                int iUserSelection = Convert.ToInt32(Console.ReadLine());
+                int iUserSelection = Convert.ToInt16(Console.ReadLine());
                 switch (iUserSelection)
                 {
                     case 1:
