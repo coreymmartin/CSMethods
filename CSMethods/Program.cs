@@ -78,8 +78,7 @@ namespace CSMethods
 
             Console.Clear();
             Console.WriteLine(myStory);
-            Console.WriteLine();
-            Console.WriteLine("press enter to clear story and continue...");
+            Console.WriteLine("\npress enter to clear story and continue...");
             Console.ReadLine();
             Console.Clear();
 
@@ -127,6 +126,7 @@ namespace CSMethods
 
         public static void SelectMathOperator()
         {
+            bool bRunOperations = true;
             Console.WriteLine("How many integers do you want to perform the operation on?");
             int numValues = Convert.ToInt32(Console.ReadLine());
             int[] userVals = new int[numValues];
@@ -136,45 +136,53 @@ namespace CSMethods
                 Console.WriteLine($"Please enter value {i+1}:");
                 userVals[i] = Convert.ToInt32(Console.ReadLine());
             }
-            Console.WriteLine($"all values entered:");
-            Console.Write(userVals[0]);
-            for (int j = 1; j < userVals.Length; j++)
+            while (bRunOperations)
             {
-                Console.Write(", ");
-                Console.Write(userVals[j]);
+                Console.Clear();
+                Console.WriteLine($"all values entered:");
+                Console.Write(userVals[0]);
+                for (int j = 1; j < userVals.Length; j++)
+                {
+                    Console.Write(", ");
+                    Console.Write(userVals[j]);
+                }
+                Console.WriteLine();
+                Console.WriteLine("press enter to continue to select operation to perform");
+                Console.ReadLine();
+                Console.Clear();
+                Console.WriteLine("please select a mathematical operation to perform");
+                Console.WriteLine("\t(1) Add \n\t(2) Subtract \n\t(3) Multiply \n\t(4) Divide");
+                int OperatorSelected = Convert.ToInt32(Console.ReadLine());
+                int result = 0;
+                switch (OperatorSelected){
+                    case (int)Selection.Add:
+                        Console.WriteLine("Operator Selected: Add");
+                        result = Add(userVals);
+                        break;
+                    case (int)Selection.Subtract:
+                        Console.WriteLine("Operator Selected: Subtract");
+                        result = Subtract(userVals);
+                        break;
+                    case (int)Selection.Multiply:
+                        Console.WriteLine("Operator Selected: Multiply");
+                        result = Multiply(userVals);
+                        break;
+                    case (int)Selection.Divide:
+                        Console.WriteLine("Operator Selected: Divide");
+                        result = Divide(userVals);
+                        break;
+                    default:
+                        Console.WriteLine("Operator Selected: INVALID!");
+                        break;
+                }
+                Console.WriteLine($"result = {result}");
+                Console.WriteLine("\nwould you like to run another operation on the same set of values? \n\t (0) Yes, (1) No/Return");
+                int userDecision = Convert.ToInt16(Console.ReadLine());
+                if (userDecision > 0)
+                    bRunOperations = false;
+                else
+                    Console.Clear();
             }
-            Console.WriteLine();
-            Console.WriteLine("press enter to continue to select operation to perform");
-            Console.ReadLine();
-            Console.Clear();
-            Console.WriteLine("please select a mathematical operation to perform");
-            Console.WriteLine("\t(1) Add \n\t(2) Subtract \n\t(3) Multiply \n\t(4) Divide");
-            int OperatorSelected = Convert.ToInt32(Console.ReadLine());
-            int result = 0;
-            switch (OperatorSelected){
-                case (int)Selection.Add:
-                    Console.WriteLine("Operator Selected: Add");
-                    result = Add(userVals);
-                    break;
-                case (int)Selection.Subtract:
-                    Console.WriteLine("Operator Selected: Subtract");
-                    result = Subtract(userVals);
-                    break;
-                case (int)Selection.Multiply:
-                    Console.WriteLine("Operator Selected: Multiply");
-                    result = Multiply(userVals);
-                    break;
-                case (int)Selection.Divide:
-                    Console.WriteLine("Operator Selected: Divide");
-                    result = Divide(userVals);
-                    break;
-                default:
-                    Console.WriteLine("Operator Selected: INVALID!");
-                    break;
-            }
-            Console.WriteLine($"result = {result}");
-            Console.WriteLine();
-
         }
 
         static void Main(string[] args)
@@ -186,6 +194,7 @@ namespace CSMethods
             bool bContinue = true;
             while (bContinue)
             {
+                Console.Clear();
                 Console.WriteLine("Please select option: \n\t(1) Excercise 1: Tell A Story\n\t(2) Excercise 2: Math Operators \n\t(3) Exit\n\nPlease enter your option number...");
                 int iUserSelection = Convert.ToInt16(Console.ReadLine());
                 switch (iUserSelection)
